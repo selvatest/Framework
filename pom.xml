@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
-    <plugins>
+     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
@@ -14,21 +14,71 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.20.1</version>
+    <inherited>true</inherited>
+    
+    <configuration>
+    <suiteXmlFiles>testng.xml</suiteXmlFiles>
+    
+    </configuration>
+</plugin>
+      
     </plugins>
+    <pluginManagement>
+    	<plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>
+    									org.apache.maven.plugins
+    								</groupId>
+    								<artifactId>
+    									maven-compiler-plugin
+    								</artifactId>
+    								<versionRange>
+    									[3.5.1,)
+    								</versionRange>
+    								<goals>
+    									<goal>compile</goal>
+    								</goals>
+    							</pluginExecutionFilter>
+    							<action>
+    								<ignore></ignore>
+    							</action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
   </build>
+
 <dependencies>
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-server</artifactId>
     <version>3.4.0</version>
 </dependency>
+
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi</artifactId>
     <version>3.16</version>
 </dependency>
 <dependency>
-    <groupId>org.apache.poi</groupId>
+   	<groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
     <version>3.16</version>
 </dependency>
@@ -75,8 +125,13 @@
     <version>4.1.0</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/com.github.detro.ghostdriver/phantomjsdriver -->
+<dependency>
+    <groupId>com.github.detro.ghostdriver</groupId>
+    <artifactId>phantomjsdriver</artifactId>
+    <version>1.1.0</version>
+</dependency>
+
 </dependencies>  
-  
-  
-  
+ 
 </project>
